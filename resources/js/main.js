@@ -61,3 +61,5 @@ const displayPaper = (item, color) => {
 paper.addEventListener('click', displayPaper('paper', 'blueColor'));
 scissors.addEventListener('click', displayPaper('scissors', 'yellowColor'));
 rock.addEventListener('click', displayPaper('rock', 'redColor'));
+
+// TODO Pick a random choice for the computer:
