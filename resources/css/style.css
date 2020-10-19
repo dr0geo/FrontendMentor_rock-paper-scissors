@@ -155,10 +155,11 @@ section {
 /* Rules once a choice is made: */
 
 #result {
+  align-items: center;
   display: none;
   height: 250px;
   justify-content: space-around;
-  max-width: 600px;
+  max-width: 900px;
   position: absolute;
   text-align: center;
   width: 100%;
@@ -176,6 +177,35 @@ section {
   height: 150px;
   margin-top: 30px;
   width: 150px;
+}
+
+#win-lose {
+  display: block;
+}
+
+#sentence {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+#reset {
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 7px;
+  color: hsl(229, 25%, 31%);
+  margin: auto;
+  padding: 10px 60px;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+#reset:hover {
+  background-color: hsla(217, 16%, 45%, 0.3);
+  border: 1px solid hsl(11, 0%, 80%);
+  color: white;
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 /* Aside rules: */
