@@ -30,6 +30,7 @@ closingCross.addEventListener('click', closeRules);
 
 
 // Display screen with choice made by user:
+
 const paper = document.getElementById('paper');
 const scissors = document.getElementById('scissors');
 const rock = document.getElementById('rock');
@@ -40,7 +41,7 @@ const result = document.getElementById('result');
 const choiceCircle = document.getElementsByClassName('circle')[0];
 
 
-const displayPaper = (item, color) => {
+const displayChoice = (item, color) => {
   return function() {
     // Remove the three items from the page:
     for (let i = 0 ; i < 3 ; i++) {
@@ -58,8 +59,39 @@ const displayPaper = (item, color) => {
   }
 }
 
-paper.addEventListener('click', displayPaper('paper', 'blueColor'));
-scissors.addEventListener('click', displayPaper('scissors', 'yellowColor'));
-rock.addEventListener('click', displayPaper('rock', 'redColor'));
+paper.addEventListener('click', displayChoice('paper', 'blueColor'));
+scissors.addEventListener('click', displayChoice('scissors', 'yellowColor'));
+rock.addEventListener('click', displayChoice('rock', 'redColor'));
+
+
+
 
 // TODO Pick a random choice for the computer:
+
+const houseCircle = document.getElementsByClassName('circle')[1];
+
+const displayHouseChoice = (item, color) => {
+  houseCircle.classList.add('icon');
+  houseCircle.classList.add(`${item}`);
+  houseCircle.parentElement.classList.add('background');
+  houseCircle.parentElement.classList.add(`${color}`);
+}
+
+const randomChoice = () => {
+  let randomNum = Math.floor(Math.random() * 3);
+  switch (randomNum) {
+    case 0:
+      displayHouseChoice('paper', 'blueColor');
+      break;
+    case 1:
+      displayHouseChoice('scissors', 'yellowColor');
+      break;
+    case 2:
+      displayHouseChoice('rock', 'redColor');
+      break;
+  }
+}
+
+paper.addEventListener('click', randomChoice);
+scissors.addEventListener('click', randomChoice);
+rock.addEventListener('click', randomChoice);
