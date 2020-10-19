@@ -182,7 +182,7 @@ aside {
   background-color: white;
   border-radius: 8px;
   color: hsl(229, 25%, 31%);
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   height: 350px;
   justify-content: space-between;
