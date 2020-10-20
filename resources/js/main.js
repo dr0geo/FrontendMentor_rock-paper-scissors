@@ -94,7 +94,6 @@ const randomChoice = () => {
       computer = 'rock';
       break;
   }
-  console.log(user, computer);
   winOrLose(user, computer);
 }
 
@@ -116,7 +115,7 @@ const resetState = () => {
   }
 
   // Display background:
-  document.getElementsByTagName('main').item(0).style.backgroundImage = 'url("../images/bg-triangle.svg")';
+  document.getElementsByTagName('main').item(0).style.backgroundImage = 'url("resources/images/bg-triangle.svg")';
 
   // Hide the result from previous choice:
   result.style.display = 'none';
