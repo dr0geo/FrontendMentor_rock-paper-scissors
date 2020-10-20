@@ -97,7 +97,9 @@ const randomChoice = () => {
       computer = 'rock';
       break;
   }
-  winOrLose(user, computer);
+  return setTimeout(() => {
+    winOrLose(user, computer);
+  }, 400); 
 }
 
 paper.addEventListener('click', randomChoice);
