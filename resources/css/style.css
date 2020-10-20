@@ -469,7 +469,7 @@ a:hover {
     align-items: center;
     border-radius: 0px;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     height: 100vh;
     top: 0;
     width: 100vw;
