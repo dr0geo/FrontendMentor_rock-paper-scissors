@@ -362,7 +362,9 @@ a:hover {
   }
 
   #close {
+    height: 30px;
     order: 3;
+    width: 30px;
   }
 
   footer {
