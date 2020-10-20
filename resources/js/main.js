@@ -7,19 +7,17 @@ let rulesCounter = 0;
 const displayRules = () => {
   if (rulesCounter === 0) {
     rules.style.opacity = '1';
-    rules.style.height = '350px';
-    rules.style.width = '350px';
+   
     rulesCounter = 1;
     rules.style.zIndex = '5';
     
   } else {
     rules.style.opacity = '0';
-    rules.style.height = '70px';
-    rules.style.width = '70px';
+    
     rulesCounter = 0;
     return setTimeout(() => {
       rules.style.zIndex = '-1';
-    }, 1000);
+    }, 200);
   }
 }
 
