@@ -48,7 +48,7 @@ const displayChoice = (item, color) => {
       sections.item(i).style.display = 'none';
     }
     // Remove the background image of the main tag:
-    document.getElementsByTagName('main').item(0).style.backgroundImage = 'none';
+    document.getElementsByTagName('main').item(0).style.backgroundImage = 'unset';
 
     // Display the selected item in first circle:
     result.style.display = 'flex';
@@ -56,6 +56,7 @@ const displayChoice = (item, color) => {
     choiceCircle.classList.add(`${item}`);
     choiceCircle.parentElement.classList.add('background');
     choiceCircle.parentElement.classList.add(`${color}`);
+    user = item;
   }
 }
 
@@ -66,7 +67,7 @@ rock.addEventListener('click', displayChoice('rock', 'redColor'));
 
 
 
-// TODO Pick a random choice for the computer:
+// Pick a random choice for the computer:
 
 const houseCircle = document.getElementsByClassName('circle')[1];
 
@@ -82,12 +83,15 @@ const randomChoice = () => {
   switch (randomNum) {
     case 0:
       displayHouseChoice('paper', 'blueColor');
+      computer = 'paper';
       break;
     case 1:
       displayHouseChoice('scissors', 'yellowColor');
+      computer = 'scissors';
       break;
     case 2:
       displayHouseChoice('rock', 'redColor');
+      computer = 'rock';
       break;
   }
 }
@@ -95,3 +99,33 @@ const randomChoice = () => {
 paper.addEventListener('click', randomChoice);
 scissors.addEventListener('click', randomChoice);
 rock.addEventListener('click', randomChoice);
+
+
+
+// Create a reset/continue button:
+
+const resetButton = document.getElementById('reset');
+
+const resetState = () => {
+
+  // Add the three items from the page:
+  for (let j = 0 ; j < 3 ; j++) {
+    sections.item(j).style.display = 'flex';
+  }
+
+  // Display background:
+  document.getElementsByTagName('main').item(0).style.backgroundImage = 'url("/home/geoffroy/dev/frontendMentor/rock_paper_scissors/resources/images/bg-triangle.svg")';
+
+  // Hide the result from previous choice:
+  result.style.display = 'none';
+
+  // Remove class from previous choice:
+  choiceCircle.classList.remove('paper', 'scissors', 'rock');
+  choiceCircle.parentElement.classList.remove('blueColor', 'yellowColor', 'redColor');
+}
+
+resetButton.addEventListener('click', resetState);
+
+
+
+// TODO Create logic for the score:
