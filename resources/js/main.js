@@ -6,10 +6,12 @@ let rulesCounter = 0;
 
 const displayRules = () => {
   if (rulesCounter === 0) {
-    rules.style.display = 'flex';
+    rules.style.opacity = 1;
+    rules.style.zIndex = 5;
     rulesCounter = 1;
   } else {
-    rules.style.display = 'none';
+    rules.style.opacity = 0;
+    rules.style.zIndex = -1;
     rulesCounter = 0;
   }
 }
@@ -45,13 +47,14 @@ const displayChoice = (item, color) => {
   return function() {
     // Remove the three items from the page:
     for (let i = 0 ; i < 3 ; i++) {
-      sections.item(i).style.display = 'none';
+      sections.item(i).style.opacity = '0';
     }
     // Remove the background image of the main tag:
     document.getElementsByTagName('main').item(0).style.backgroundImage = 'unset';
 
     // Display the selected item in first circle:
-    result.style.display = 'flex';
+    result.style.opacity = '1';
+    result.style.zIndex = '2';
     choiceCircle.classList.add('icon');
     choiceCircle.classList.add(`${item}`);
     choiceCircle.parentElement.classList.add('background');
@@ -109,22 +112,27 @@ const resetButton = document.getElementById('reset');
 
 const resetState = () => {
 
-  // Add the three items from the page:
-  for (let j = 0 ; j < 3 ; j++) {
-    sections.item(j).style.display = 'flex';
-  }
-
-  // Display background:
-  document.getElementsByTagName('main').item(0).style.backgroundImage = 'url("resources/images/bg-triangle.svg")';
-
   // Hide the result from previous choice:
-  result.style.display = 'none';
-
+  result.style.opacity = '0';
+  result.style.zIndex = '-3';
+  
   // Remove class from previous choice:
-  choiceCircle.classList.remove('paper', 'scissors', 'rock');
-  choiceCircle.parentElement.classList.remove('blueColor', 'yellowColor', 'redColor');
-  houseCircle.classList.remove('paper', 'scissors', 'rock');
-  houseCircle.parentElement.classList.remove('blueColor', 'yellowColor', 'redColor');
+  return setTimeout(() => {
+    choiceCircle.classList.remove('paper', 'scissors', 'rock');
+    choiceCircle.parentElement.classList.remove('blueColor', 'yellowColor', 'redColor');
+    houseCircle.classList.remove('paper', 'scissors', 'rock');
+    houseCircle.parentElement.classList.remove('blueColor', 'yellowColor', 'redColor');
+    return setTimeout(() => {
+      
+      // Add the three items from the page:
+      for (let j = 0 ; j < 3 ; j++) {
+      sections.item(j).style.opacity = '1';
+      }
+
+      // Display background:
+      document.getElementsByTagName('main').item(0).style.backgroundImage = 'url("resources/images/bg-triangle.svg")';
+    }, 500);
+  }, 600);
 }
 
 resetButton.addEventListener('click', resetState);
@@ -161,3 +169,6 @@ const winOrLose = (user, computer) => {
     sentence.innerText = 'Same choice, try again!'
   }
 }
+
+
+// TODO Add circles behind round winner on results screen:
