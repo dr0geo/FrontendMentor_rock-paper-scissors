@@ -94,6 +94,8 @@ const randomChoice = () => {
       computer = 'rock';
       break;
   }
+  console.log(user, computer);
+  winOrLose(user, computer);
 }
 
 paper.addEventListener('click', randomChoice);
@@ -122,10 +124,41 @@ const resetState = () => {
   // Remove class from previous choice:
   choiceCircle.classList.remove('paper', 'scissors', 'rock');
   choiceCircle.parentElement.classList.remove('blueColor', 'yellowColor', 'redColor');
+  houseCircle.classList.remove('paper', 'scissors', 'rock');
+  houseCircle.parentElement.classList.remove('blueColor', 'yellowColor', 'redColor');
 }
 
 resetButton.addEventListener('click', resetState);
 
 
 
-// TODO Create logic for the score:
+// Create logic for the score:
+
+let user;
+let computer;
+let score = document.getElementById('score');
+let sentence = document.getElementById('sentence');
+
+const winOrLose = (user, computer) => {
+  if (user === 'paper' && computer === 'scissors') {
+    score.innerHTML = parseInt(score.innerHTML) - 1;
+    sentence.innerText = 'You lose';
+  } else if (user === 'paper' && computer === 'rock') {
+    score.innerHTML = parseInt(score.innerHTML) + 1;
+    sentence.innerText = 'You win';
+  } else if (user === 'scissors' && computer === 'paper') {
+    score.innerHTML = parseInt(score.innerHTML) + 1;
+    sentence.innerText = 'You win';
+  } else if (user === 'scissors' && computer === 'rock') {
+    score.innerHTML = parseInt(score.innerHTML) - 1;
+    sentence.innerText = 'You lose';
+  } else if (user === 'rock' && computer === 'paper') {
+    score.innerHTML = parseInt(score.innerHTML) - 1;
+    sentence.innerText = 'You lose';
+  } else if (user === 'rock' && computer === 'scissors') {
+    score.innerHTML = parseInt(score.innerHTML) + 1;
+    sentence.innerText = 'You win'
+  } else {
+    sentence.innerText = 'Same choice, try again!'
+  }
+}
