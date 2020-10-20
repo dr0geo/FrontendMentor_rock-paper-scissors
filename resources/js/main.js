@@ -6,15 +6,15 @@ let rulesCounter = 0;
 
 const displayRules = () => {
   if (rulesCounter === 0) {
-    rules.style.opacity = 1;
+    rules.style.opacity = '1';
     rulesCounter = 1;
-    rules.style.zIndex = 5;
+    rules.style.zIndex = '5';
     
   } else {
-    rules.style.opacity = 0;
+    rules.style.opacity = '0';
     rulesCounter = 0;
     return setTimeout(() => {
-      rules.style.zIndex = 0;
+      rules.style.zIndex = '-1';
     }, 1000);
   }
 }
