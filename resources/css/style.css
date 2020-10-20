@@ -74,11 +74,11 @@ main {
   background-size: 50% 225px;
   display: flex;
   flex-wrap: wrap;
+  height: 300px;
   justify-content: center;
   margin: auto;
   margin-top: 70px;
   max-width: 600px;
-  height: 300px;
   width: 100%;
 }
 
@@ -175,6 +175,10 @@ section {
   font-weight: 700;
 }
 
+.desktop {
+  display: block;
+}
+
 .center {
   margin: auto;
 }
@@ -185,6 +189,10 @@ section {
   height: 150px;
   margin-top: 30px;
   width: 150px;
+}
+
+.mobile {
+  display: none;
 }
 
 #win-lose {
@@ -349,9 +357,18 @@ a:hover {
   border-bottom: 5px solid hsl(349, 62%, 38%);
 }
 
+/* Intermediate design: */
+
+@media only screen and (max-width: 830px) {
+
+  #sentence {
+    font-size: 1.6rem;
+  }
+}
+
 /* Mobile design: */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) {
 
   html {
     height: unset;
@@ -413,12 +430,17 @@ a:hover {
     order: 3;
   }
 
+  .desktop {
+    display: none;
+  }
+
   .fifty {
     width: 50%;
   }
 
-  .fifty > h2 {
-    order: 3;
+  .mobile {
+    display: block;
+    margin-top: 20px;
   }
 
   #sentence {
