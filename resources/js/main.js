@@ -116,7 +116,7 @@ const resetState = () => {
   }
 
   // Display background:
-  document.getElementsByTagName('main').item(0).style.backgroundImage = 'url("/home/geoffroy/dev/frontendMentor/rock_paper_scissors/resources/images/bg-triangle.svg")';
+  document.getElementsByTagName('main').item(0).style.backgroundImage = 'url("../images/bg-triangle.svg")';
 
   // Hide the result from previous choice:
   result.style.display = 'none';
