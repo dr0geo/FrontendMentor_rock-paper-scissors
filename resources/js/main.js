@@ -7,13 +7,11 @@ let rulesCounter = 0;
 const displayRules = () => {
   if (rulesCounter === 0) {
     rules.style.opacity = '1';
-   
     rulesCounter = 1;
     rules.style.zIndex = '5';
     
   } else {
     rules.style.opacity = '0';
-    
     rulesCounter = 0;
     return setTimeout(() => {
       rules.style.zIndex = '-1';
@@ -129,6 +127,8 @@ const resetState = () => {
     choiceCircle.parentElement.classList.remove('blueColor', 'yellowColor', 'redColor');
     houseCircle.classList.remove('paper', 'scissors', 'rock');
     houseCircle.parentElement.classList.remove('blueColor', 'yellowColor', 'redColor');
+    userWinner.classList.remove('radial-grad', 'left');
+    houseWinner.classList.remove('radial-grad', 'right');
     return setTimeout(() => {
       
       // Add the three items from the page:
@@ -152,26 +152,40 @@ let user;
 let computer;
 let score = document.getElementById('score');
 let sentence = document.getElementById('sentence');
+const userWinner = document.getElementById('user-winner');
+const houseWinner = document.getElementById('house-winner');
 
 const winOrLose = (user, computer) => {
   if (user === 'paper' && computer === 'scissors') {
     score.innerHTML = parseInt(score.innerHTML) - 1;
     sentence.innerText = 'You lose';
+    houseWinner.classList.add('radial-grad');
+    houseWinner.classList.add('right');
   } else if (user === 'paper' && computer === 'rock') {
     score.innerHTML = parseInt(score.innerHTML) + 1;
     sentence.innerText = 'You win';
+    userWinner.classList.add('radial-grad');
+    userWinner.classList.add('left');
   } else if (user === 'scissors' && computer === 'paper') {
     score.innerHTML = parseInt(score.innerHTML) + 1;
     sentence.innerText = 'You win';
+    userWinner.classList.add('radial-grad');
+    userWinner.classList.add('left');
   } else if (user === 'scissors' && computer === 'rock') {
     score.innerHTML = parseInt(score.innerHTML) - 1;
     sentence.innerText = 'You lose';
+    houseWinner.classList.add('radial-grad');
+    houseWinner.classList.add('right');
   } else if (user === 'rock' && computer === 'paper') {
     score.innerHTML = parseInt(score.innerHTML) - 1;
     sentence.innerText = 'You lose';
+    houseWinner.classList.add('radial-grad');
+    houseWinner.classList.add('right');
   } else if (user === 'rock' && computer === 'scissors') {
     score.innerHTML = parseInt(score.innerHTML) + 1;
     sentence.innerText = 'You win'
+    userWinner.classList.add('radial-grad');
+    userWinner.classList.add('left');
   } else {
     sentence.innerText = 'Same choice, try again!'
   }

@@ -173,14 +173,14 @@ section {
 #result h2 {
   font-size: 1.3rem;
   font-weight: 700;
-}
-
-.desktop {
-  display: block;
+  position: relative;
+  top: -120px;
 }
 
 .center {
   margin: auto;
+  position: relative;
+  top: 75px;
 }
 
 .circle {
@@ -484,4 +484,22 @@ a:hover {
   footer {
     margin-top: 30px;
   }
+}
+
+.radial-grad {
+  height: 400px;
+  width: 400px;
+  background-image: radial-gradient(hsla(230, 89%, 60%, 0.05) 0% 45%, hsla(230, 89%, 70%, 0.05) 45% 58%, hsla(230, 89%, 78%, 0.05) 58% 75%);
+  border-radius: 100%;
+  position: absolute;
+  top: -50px;
+  z-index: -1;
+}
+
+.left {
+  left: -80px;
+}
+
+.right {
+  right: -70px;
 }
