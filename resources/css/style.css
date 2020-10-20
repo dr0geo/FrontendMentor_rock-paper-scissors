@@ -257,13 +257,13 @@ aside {
   color: hsl(229, 25%, 31%);
   display: flex;
   flex-wrap: wrap;
-  height: 350px;
+  height: 70px;
   justify-content: space-between;
   opacity: 0;
   padding: 30px;
   position: fixed;
-  transition: opacity 0.6s ease-in-out;
-  width: 350px;
+  transition: opacity 0.2s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out;
+  width: 70px;
   z-index: -1;
 }
 
