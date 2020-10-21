@@ -173,14 +173,15 @@ section {
 #result h2 {
   font-size: 1.3rem;
   font-weight: 700;
+  margin-top: 30px;
   position: relative;
-  top: -120px;
+  text-align: center;
 }
 
 .center {
   margin: auto;
   position: relative;
-  top: 75px;
+  top: 15px;
 }
 
 .circle {
@@ -200,6 +201,7 @@ section {
 }
 
 #sentence {
+  flex: 1 1 540px;
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
@@ -212,8 +214,10 @@ section {
   color: hsl(229, 25%, 31%);
   margin: auto;
   padding: 10px 60px;
+  position: relative;
   transition: all 0.3s ease-in-out;
   width: 200px;
+  z-index: 3;
 }
 
 #reset:hover {
@@ -240,7 +244,9 @@ aside {
   border-radius: 5px;
   line-height: 0.8rem;
   padding: 10px 30px;
+  position: relative;
   transition: all 0.3s ease-in-out;
+  z-index: 3;
 }
 
 #rules-button:hover {
@@ -357,12 +363,35 @@ a:hover {
   border-bottom: 5px solid hsl(349, 62%, 38%);
 }
 
+.radial-grad {
+  background-image: radial-gradient(hsla(230, 89%, 60%, 0.05) 0% 45%, hsla(230, 89%, 70%, 0.05) 45% 58%, hsla(230, 89%, 78%, 0.05) 58% 75%);
+  z-index: -1;
+}
+
+#user-winner {
+  height: 400px;
+  width: 400px;
+  border-radius: 100%;
+  position: absolute;
+  top: -50px;
+  left: -90px;
+}
+
+#house-winner {
+  height: 400px;
+  width: 400px;
+  border-radius: 100%;
+  position: absolute;
+  top: -50px;
+  right: -90px;
+}
+
 /* Intermediate design: */
 
 @media only screen and (max-width: 830px) {
 
   #sentence {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -428,6 +457,28 @@ a:hover {
 
   #win-lose {
     order: 3;
+    position: relative;
+    top: 50px;
+  }
+
+  #user-winner {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    position: absolute;
+    left: 20px;
+  }
+  
+  #house-winner {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    position: absolute;
+    right: 20px;
+  }
+
+  .center {
+    top: 20px;
   }
 
   .desktop {
@@ -484,22 +535,4 @@ a:hover {
   footer {
     margin-top: 30px;
   }
-}
-
-.radial-grad {
-  height: 400px;
-  width: 400px;
-  background-image: radial-gradient(hsla(230, 89%, 60%, 0.05) 0% 45%, hsla(230, 89%, 70%, 0.05) 45% 58%, hsla(230, 89%, 78%, 0.05) 58% 75%);
-  border-radius: 100%;
-  position: absolute;
-  top: -50px;
-  z-index: -1;
-}
-
-.left {
-  left: -80px;
-}
-
-.right {
-  right: -70px;
 }

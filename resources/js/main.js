@@ -190,6 +190,3 @@ const winOrLose = (user, computer) => {
     sentence.innerText = 'Same choice, try again!'
   }
 }
-
-
-// TODO Add circles behind round winner on results screen:
