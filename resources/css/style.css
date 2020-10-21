@@ -464,17 +464,13 @@ a:hover {
   #user-winner {
     height: 200px;
     width: 200px;
-    border-radius: 100%;
-    position: absolute;
-    left: 20px;
+    left: 0px;
   }
   
   #house-winner {
     height: 200px;
     width: 200px;
-    border-radius: 100%;
-    position: absolute;
-    right: 20px;
+    right: 0px;
   }
 
   .center {
